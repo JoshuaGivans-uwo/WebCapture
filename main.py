@@ -33,7 +33,7 @@ def authenticate():
 
 def capture_image(filename):
     """Capture an image using OpenCV and save it."""
-    cap = cv2.VideoCapture(0)  # Open default camera
+    cap = cv2.VideoCapture(1)  # Open web camera on port 1
     ret, frame = cap.read()  # Capture frame
 
     if ret:
@@ -80,6 +80,7 @@ def run_continuous_capture(interval, folder_id=None):
         print("Process stopped by user.") #Ctrl+C to stop
 
 if __name__ == "__main__":
-    INTERVAL = 10  # Set the capture interval in seconds
+    MINUTES = 0.1
+    INTERVAL = 60 * MINUTES  # Set the capture interval in seconds
     FOLDER_ID = "1_7AUcGa-lcrayWM1f6iixFXxsQWZuAv2"  # Set this to a specific Google Drive folder ID if needed
     run_continuous_capture(INTERVAL, FOLDER_ID)
